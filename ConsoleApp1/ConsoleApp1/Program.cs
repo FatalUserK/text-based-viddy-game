@@ -19,26 +19,26 @@ class Program
 
         Thread.Sleep(1500);
 
-        Print("...", 1500);
+        Print("...", 900);
         Thread.Sleep(2000);
 
         // "Wow, look! What a cool game" is a meta reference showing that this game is likely to be less formal with its humor and story since its acknowledging itself as a game
-        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Green;
         Print("\n\nI wonder\n", 15);
         Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Print("         ", 0);
         Print("if anyone's\n", 15);
         Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Red;
         Print("                     ", 0);
         Print("going to\n", 15);
         Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Print("                              ", 0);
         Print("make it\n", 15);
         Thread.Sleep(800);
-        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Print("                                      ", 0);
         Print(":)\n", 5);
         Thread.Sleep(1500);
@@ -50,7 +50,6 @@ class Program
         // holds off on running the scripts that put the game together until the player enters an input, this act as a gatekeeper as it were but will also act as the input for the main antagonist.
         // The User is probably unaware of this and will likely bring some sort of gratification knowing this choice had some sort of payoff in the long run,
         // This could also lead to some comedic moments later on deciding on the input the user decided on
-        Console.ForegroundColor = ConsoleColor.Blue;
         Print("\n\n\n\n[Type anything to ", 10);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Print("START", 10);
@@ -72,15 +71,16 @@ class Program
         //Console.WriteLine(randStartInputList[randNumber]);
         string startInput = Console.ReadLine();
 
-        if (string.IsNullOrEmpty(startInput))
-           {
-                startInput = (randStartInputList[randNumber]);
-           }
+        //if (string.IsNullOrEmpty(startInput))
+        //   {
+        //        startInput = (randStartInputList[randNumber]);
+        //   }
 
         // runs various scripts that will help optimise things later on
 
         string playerName = "USER";
         string userInputEcho = playerName + " has made the input: ";
+        startInput = "[" + startInput + "]";
 
         Console.ForegroundColor = ConsoleColor.Blue;
 
@@ -217,11 +217,11 @@ class Program
         Console.ForegroundColor = ConsoleColor.White;
         Print("!\n\n", 10);
 
-
+        Thread.Sleep(1500);
 
 
         bool nameBlank = true;
-        Print("Now tell me, who is this legend about?\n", 13);
+        Print("Now tell me, young lad. Who is this legend about?\n", 13);
 
         playerName = Console.ReadLine();
 
@@ -231,10 +231,13 @@ class Program
         Print(playerName + ",", 70);
         Thread.Sleep(1100);
         Print(" huh?", 13);
-
+        Thread.Sleep(1300);
         if (playerName == "[]") 
         {
             nameBlank = true;
+            Print("Well I suppose if you don't want to answer,", 13);
+            Thread.Sleep(1100);
+            Print(" it can't be helped.", 13);
         }
 
 
