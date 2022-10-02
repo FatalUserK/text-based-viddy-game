@@ -421,6 +421,13 @@ class Program
         Thread.Sleep(3100);
         TextPrecursor(1, true);
         Print("He was then promptly struck by lightning and immediately died", 23);
+        Thread.Sleep(1300);
+        Print("...", 850);
+        Thread.Sleep(1100);
+        Print(" Is what WOULD'VE happened", 23);
+        Thread.Sleep(700);
+        Print(", if this was an ordinary lightning bolt...", 23);
+        Print("", 23);
         TextPrecursor(1, true);
 
 
