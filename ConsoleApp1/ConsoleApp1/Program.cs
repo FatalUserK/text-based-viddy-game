@@ -22,14 +22,14 @@ class Program
         Thread.Sleep(2000);
 
 
-//////////////////////////////////////////// TESTING SPACE START ////////////////////////////////////
+        //////////////////////////////////////////// TESTING SPACE START ////////////////////////////////////
 
 
         //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"c:\mywavfile.wav");
         //player.Play();
 
 
-
+        ascii(1, 0, 0);
 
 
 
@@ -158,7 +158,7 @@ class Program
 
         if (startInput == "math")
         {
-            ascii(1);
+            ascii(1, 10, 10);
 
         }
 
@@ -273,29 +273,8 @@ class Program
 
         Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 1);
 
+        ascii(2, 5, 0);
 
-        Print("     .----------------.   .----------------.   .----------------.                     Welcome to:\n", 0);
-        Thread.Sleep(5);
-        Print("    | .--------------. | | .--------------. | | .--------------. |      ______         ______        __       __        __    __        __               ______         ________         ______         _______    \n", 0);
-        Thread.Sleep(5);
-        Print("    | |  _______     | | | |   ______     | | | |    ______    | |     /      \\       |      \\      |  \\     /  \\      |  \\  |  \\      |  \\             /      \\       |        \\       /      \\       |       \\   \n", 0);
-        Thread.Sleep(5);
-        Print("    | | |_   __ \\    | | | |  |_   __ \\   | | | |  .' ___  |   | |    |  $$$$$$\\       \\$$$$$$      | $$\\   /  $$      | $$  | $$      | $$            |  $$$$$$\\       \\$$$$$$$$      |  $$$$$$\\      | $$$$$$$\\  \n", 0);
-        Thread.Sleep(5);
-        Print("    | |   | |__) |   | | | |    | |__) |  | | | | / .'   \\_|   | |    | $$___\\$$        | $$        | $$$\\ /  $$$      | $$  | $$      | $$            | $$__| $$         | $$         | $$  | $$      | $$__| $$  \n", 0);
-        Thread.Sleep(5);
-        Print("    | |   |  __ /    | | | |    |  ___/   | | | | | |    ____  | |     \\$$    \\         | $$        | $$$$\\  $$$$      | $$  | $$      | $$            | $$    $$         | $$         | $$  | $$      | $$    $$   \n", 0);
-        Thread.Sleep(5);
-        Print("    | |  _| |  \\ \\_  | | | |   _| |_      | | | | \\ `.___]  _| | |     _\\$$$$$$\\        | $$        | $$\\$$ $$ $$      | $$  | $$      | $$            | $$$$$$$$         | $$         | $$  | $$      | $$$$$$$\\  \n", 0);
-        Thread.Sleep(5);
-        Print("    | | |____| |___| | | | |  |_____|     | | | |  `._____.'   | |    |  \\__| $$       _| $$_       | $$ \\$$$| $$      | $$__/ $$      | $$_____       | $$  | $$         | $$         | $$__/ $$      | $$  | $$  \n", 0);
-        Thread.Sleep(5);
-        Print("    | |              | | | |              | | | |              | |     \\$$    $$      |   $$ \\      | $$  \\$ | $$       \\$$    $$      | $$     \\      | $$  | $$         | $$          \\$$    $$      | $$  | $$  \n", 0);
-        Thread.Sleep(5);
-        Print("    | '--------------' | | '--------------' | | '--------------' |      \\$$$$$$        \\$$$$$$       \\$$      \\$$        \\$$$$$$        \\$$$$$$$$       \\$$   \\$$          \\$$           \\$$$$$$        \\$$   \\$$  \n", 0);
-        Thread.Sleep(5);
-        Print("     '----------------'   '----------------'   '----------------'                                                                                                              Designed, Written and Created by K\n\n\n\n", 0);
-        Thread.Sleep(5);
         Console.ForegroundColor = ConsoleColor.White;
 
         Print("Welcome,", 13);
@@ -575,29 +554,78 @@ class Program
             Thread.Sleep(speed6);
         }
     }
-    public static void ascii(int ascii)
+    public static void ascii(int ascii, int newLineSpeed, int typingSpeed)
     {
         if (ascii == 0)
         {
             // TODO: add placeholder art
         }
-        Console.ForegroundColor = ConsoleColor.Gray;
-        for (int i = 0; i < 7; i++)
+        else if (ascii == 1)
         {
-            Console.Write("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
+            for (int i = 0; i < 7; i++)
+            {
+                Print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n", typingSpeed);
+                Thread.Sleep(newLineSpeed);
+            };
+            Print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       ", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Print("##################", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Print("(      *", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Print("%%%%%%%&&&&&&&&&&&&&&&&%&&&&&&&&&\n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("&&&&&&&&&&&&&&&&&&&&&&&&%%%%", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Black;
+            Print(".            ", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Print("((###############(             ", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Print("%%%%%%%&&&&&&&&&&%&&&&&&&&&&\n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("&&&", typingSpeed);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
+            Print("", typingSpeed);
         }
-        Console.Write("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       ");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("##################");
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.Write("(      *");
-        Console.ForegroundColor = ConsoleColor.Gray;
-        Console.Write("%%%%%%%&&&&&&&&&&&&&&&&%&&&&&&&&&\n&&&&&&&&&&&&&&&&&&&&&&&&%%%%");
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.Write(".            ");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("((###############(             ");
-        Console.ForegroundColor = ConsoleColor.Gray;
-        Console.Write("%%%%%%%&&&&&&&&&&%&&&&&&&&&&\n&&&")
+        else if (ascii == 2)
+        {
+            Print("     .----------------.   .----------------.   .----------------.                     Welcome to:\n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | .--------------. | | .--------------. | | .--------------. |      ______         ______        __       __        __    __        __               ______         ________         ______         _______    \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | |  _______     | | | |   ______     | | | |    ______    | |     /      \\       |      \\      |  \\     /  \\      |  \\  |  \\      |  \\             /      \\       |        \\       /      \\       |       \\   \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | | |_   __ \\    | | | |  |_   __ \\   | | | |  .' ___  |   | |    |  $$$$$$\\       \\$$$$$$      | $$\\   /  $$      | $$  | $$      | $$            |  $$$$$$\\       \\$$$$$$$$      |  $$$$$$\\      | $$$$$$$\\  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | |   | |__) |   | | | |    | |__) |  | | | | / .'   \\_|   | |    | $$___\\$$        | $$        | $$$\\ /  $$$      | $$  | $$      | $$            | $$__| $$         | $$         | $$  | $$      | $$__| $$  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | |   |  __ /    | | | |    |  ___/   | | | | | |    ____  | |     \\$$    \\         | $$        | $$$$\\  $$$$      | $$  | $$      | $$            | $$    $$         | $$         | $$  | $$      | $$    $$   \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | |  _| |  \\ \\_  | | | |   _| |_      | | | | \\ `.___]  _| | |     _\\$$$$$$\\        | $$        | $$\\$$ $$ $$      | $$  | $$      | $$            | $$$$$$$$         | $$         | $$  | $$      | $$$$$$$\\  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | | |____| |___| | | | |  |_____|     | | | |  `._____.'   | |    |  \\__| $$       _| $$_       | $$ \\$$$| $$      | $$__/ $$      | $$_____       | $$  | $$         | $$         | $$__/ $$      | $$  | $$  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | |              | | | |              | | | |              | |     \\$$    $$      |   $$ \\      | $$  \\$ | $$       \\$$    $$      | $$     \\      | $$  | $$         | $$          \\$$    $$      | $$  | $$  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("    | '--------------' | | '--------------' | | '--------------' |      \\$$$$$$        \\$$$$$$       \\$$      \\$$        \\$$$$$$        \\$$$$$$$$       \\$$   \\$$          \\$$           \\$$$$$$        \\$$   \\$$  \n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+            Print("     '----------------'   '----------------'   '----------------'                                                                                                              Designed, Written and Created by K\n\n\n\n", typingSpeed);
+            Thread.Sleep(newLineSpeed);
+        }
     }
 }
