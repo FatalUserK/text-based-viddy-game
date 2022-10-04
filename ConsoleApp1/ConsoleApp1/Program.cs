@@ -155,6 +155,13 @@ class Program
 
         }
 
+
+        if (startInput == "math")
+        {
+            ascii(1);
+
+        }
+
         // runs various scripts that will help optimise things later on
 
         string playerName = "USER";
@@ -207,8 +214,8 @@ class Program
 
                                                 // previously replaced "randNumber" with "40"
 
-        }
-        Thread.Sleep(2000);
+        }                                  // TODO: SIMPLIFY THIS INTO A FUNCTION, HAVENT DONE THIS YET AS I ACTUALLY DONT NEED IT RN
+        Thread.Sleep(2000); 
 
         textTemp = "Trace Discovered...\n";
         foreach (char c in textTemp)
@@ -568,6 +575,29 @@ class Program
             Thread.Sleep(speed6);
         }
     }
-
-
+    public static void ascii(int ascii)
+    {
+        if (ascii == 0)
+        {
+            // TODO: add placeholder art
+        }
+        Console.ForegroundColor = ConsoleColor.Gray;
+        for (int i = 0; i < 7; i++)
+        {
+            Console.Write("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        }
+        Console.Write("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       ");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.Write("##################");
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.Write("(      *");
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.Write("%%%%%%%&&&&&&&&&&&&&&&&%&&&&&&&&&\n&&&&&&&&&&&&&&&&&&&&&&&&%%%%");
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.Write(".            ");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.Write("((###############(             ");
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.Write("%%%%%%%&&&&&&&&&&%&&&&&&&&&&\n&&&")
+    }
 }
