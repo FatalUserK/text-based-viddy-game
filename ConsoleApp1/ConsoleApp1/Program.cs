@@ -2,6 +2,7 @@
 using static System.Net.Mime.MediaTypeNames;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
+using System.Numerics;
 //using System.Media.SystemSounds;
 
 class Program
@@ -95,11 +96,100 @@ class Program
             startInput = Console.ReadLine();
             Thread.Sleep(450);
 
+
+
+            if (startInput == "debug")
+            {
+                TextPrecursor(0, true);
+                Print("Empty", 20);
+                TextPrecursor(1, true);
+                Print("Narrative", 20);
+                TextPrecursor(2, true);
+                Print("Action", 20);
+                TextPrecursor(3, true);
+                Print("Mystery", 20);
+                TextPrecursor(4, true);
+                Print("Description", 20);
+                TextPrecursor(5, true);
+                Print("Null", 20);
+                TextPrecursor(6, true);
+                Print("Null", 20);
+                TextPrecursor(7, true);
+                Print("Null", 20);
+                TextPrecursor(8, true);
+                Print("Null", 20);
+                TextPrecursor(9, true);
+                Print("Null", 20);
+
+                randNumber = rnd.Next(0, 1000);
+
+                Print("\n\n0-1000: " + randNumber, 20);
+                DateTime startTimer = DateTime.UtcNow;
+                TimeSpan timerLength = TimeSpan.FromSeconds(3);
+
+                while (true)
+                    {
+                    if (Console.KeyAvailable)
+                    {
+                        var key = Console.ReadKey(true);
+
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+
+                                break;
+                        }
+                    }
+                }
+
+                            Print("\n\nRunning Text Delay Test in ", 20);
+                Print("3 2 1\n", 500);
+                PrintLong("  <<<<10>>>>  ", 10, "  <<<<50>>>>", 50, "  <<<<100>>>>  ", 100, "  <<<<500>>>>  ", 500, "  <<<<1000>>>> ", 1000, "  <<<<5000>>>>  ", 5000, "  <<<<10000>>>>  ", 10000);
+
+                startInput = "";
+            }
+
+
+            else if (startInput == "math")
+            {
+                ascii(1, 10, 10);
+
+                startInput = "";
+            }
+
+            else if (startInput == "hero")
+            {
+                string[] heroes = { "Superman", "Batman", "Thor", "God", "Ironman" };
+                List<string> heroesList = new List<string>(heroes);
+                int heroValidInput = 0;
+                int heroInputFailure = 0;
+                string hero = "";
+                while (heroValidInput == 0)
+                {
+                    hero = "";
+                    Print("\n\nSuperman, Batman, Thor, God, Ironman:\n", 20);
+                    hero = Console.ReadLine();
+                    if (heroesList.Contains(hero)) { heroValidInput++; }
+                    else if (hero.Length < 1) { Print("\nPlease give an input.", 20); }
+                    else if (heroInputFailure <= 5) { Print("\nPlease give a valid input.", 20); heroInputFailure++; }
+                    else { Print("\nPlease give a valid input, note that the input is Case-sensitive", 20); }
+                }
+                Print("Thank you for your input...\n", 20);
+                if (hero == "Superman") { Print("He can do literally anything but is stupid", 20); }
+                else if (hero == "Batman") { Print("He's angsty and rich", 20); }
+                else if (hero == "Thor") { Print("Theoretically a God of Thunder, really just some overweight Fortnite player", 20); }
+                else if (hero == "God") { Print("Basically Superman but better", 20); }
+                else if (hero == "Ironman") { Print("Weak as shit but rich and smart as hell", 20); }
+                else { Print("WHAT THE FUCK", 60); };
+                startInput = "";
+            }
+            if (startInput == "CursorTest") { CursorTest(); }
+
             if (string.IsNullOrEmpty(startInput))
-               {
+            {
                 //startInput = (randStartInputList[randNumber]);
                 Console.ForegroundColor = ConsoleColor.White;
-                Print("\nFALSE POSITIVE DETECTED,",20);
+                Print("\nFALSE POSITIVE DETECTED,", 20);
                 Thread.Sleep(500);
                 Print(" RETURNING TO DORMANT STATE", 20);
                 Thread.Sleep(1200);
@@ -116,51 +206,6 @@ class Program
         }
 
 
-        if (startInput == "debug")
-        {
-            TextPrecursor(0, true);
-            Print("Empty", 20);
-            TextPrecursor(1, true);
-            Print("Narrative", 20);
-            TextPrecursor(2, true);
-            Print("Action", 20);
-            TextPrecursor(3, true);
-            Print("Mystery", 20);
-            TextPrecursor(4, true);
-            Print("Description", 20);
-            TextPrecursor(5, true);
-            Print("Null", 20);
-            TextPrecursor(6, true);
-            Print("Null", 20);
-            TextPrecursor(7, true);
-            Print("Null", 20);
-            TextPrecursor(8, true);
-            Print("Null", 20);
-            TextPrecursor(9, true);
-            Print("Null", 20);
-
-            randNumber = rnd.Next(0, 1000);
-
-            Print("\n\n0-1000: " + randNumber, 20);
-
-
-
-
-
-
-            Print("\n\nRunning Text Delay Test in ", 20);
-            Print("3 2 1\n", 500);
-            PrintLong("  <<<<10>>>>  ", 10, "  <<<<50>>>>", 50, "  <<<<100>>>>  ", 100, "  <<<<500>>>>  ", 500, "  <<<<1000>>>> ", 1000, "  <<<<5000>>>>  ", 5000, "  <<<<10000>>>>  ", 10000);
-
-
-        }
-
-
-        if (startInput == "math")
-        {
-            ascii(1, 10, 10);
-
-        }
 
         // runs various scripts that will help optimise things later on
 
@@ -626,6 +671,62 @@ class Program
             Thread.Sleep(newLineSpeed);
             Print("     '----------------'   '----------------'   '----------------'                                                                                                              Designed, Written and Created by K\n\n\n\n", typingSpeed);
             Thread.Sleep(newLineSpeed);
+        }
+    }
+    public static void CursorTest()
+    {   // I stole this entire script below from the internet lmao
+        Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight / 2);
+        Console.CursorVisible = false;
+        Console.Write('*');
+
+        var random = new Random();
+
+        while (true)
+        {
+            if (Console.KeyAvailable)
+            {
+                var key = Console.ReadKey(true);
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (Console.CursorTop > 0)
+                        {
+                            Console.SetCursorPosition(Console.CursorLeft - 1,
+                                Console.CursorTop - 1);
+                            Console.Write('*');
+                        }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (Console.CursorTop < Console.BufferHeight)
+                        {
+                            Console.SetCursorPosition(Console.CursorLeft - 1,
+                                Console.CursorTop + 1);
+                            Console.Write('*');
+                        }
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        if (Console.CursorLeft > 1)
+                        {
+                            Console.SetCursorPosition(Console.CursorLeft - 2,
+                                Console.CursorTop);
+                            Console.Write('*');
+                        }
+                        break;
+                    case ConsoleKey.RightArrow:
+                        if (Console.CursorLeft < Console.WindowWidth - 1)
+                        {
+                            Console.Write('*');
+                        }
+                        break;
+                }
+            }
+
+            // This method should be called on every iteration, 
+            // and the iterations should not wait for a key to be pressed
+            // Instead of Frame.Update(), change the foreground color every three seconds  
+            if (DateTime.Now.Second % 3 == 0)
+                Console.ForegroundColor = (ConsoleColor)random.Next(0, 16);
         }
     }
 }
