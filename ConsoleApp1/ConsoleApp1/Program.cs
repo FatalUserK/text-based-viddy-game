@@ -124,25 +124,29 @@ class Program
                 randNumber = rnd.Next(0, 1000);
 
                 Print("\n\n0-1000: " + randNumber, 20);
-                DateTime startTimer = DateTime.UtcNow;
-                TimeSpan timerLength = TimeSpan.FromSeconds(3);
+                Print("3 2 1 ", 500);
+                Print("GO!", 0);
 
-                while (true)
-                    {
-                    if (Console.KeyAvailable)
+                DateTime startTimer = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
+                TimeSpan timerLength = TimeSpan.FromSeconds(3);
+                int count = 0;
+                while (DateTime.UtcNow - startTimer < timerLength)
+                {
+                    if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
                     {
                         var key = Console.ReadKey(true);
 
                         switch (key.Key)
                         {
-                            case ConsoleKey.UpArrow:
-
+                            case ConsoleKey.Spacebar:
+                                count ++;
                                 break;
                         }
                     }
                 }
+                Print("You pressed the Spacebar " + count + " times!", 20);
 
-                            Print("\n\nRunning Text Delay Test in ", 20);
+                Print("\n\nRunning Text Delay Test in ", 20);
                 Print("3 2 1\n", 500);
                 PrintLong("  <<<<10>>>>  ", 10, "  <<<<50>>>>", 50, "  <<<<100>>>>  ", 100, "  <<<<500>>>>  ", 500, "  <<<<1000>>>> ", 1000, "  <<<<5000>>>>  ", 5000, "  <<<<10000>>>>  ", 10000);
 
@@ -728,5 +732,9 @@ class Program
             if (DateTime.Now.Second % 3 == 0)
                 Console.ForegroundColor = (ConsoleColor)random.Next(0, 16);
         }
+    }
+    public static void HealthBar()
+    {
+        Console 
     }
 }
