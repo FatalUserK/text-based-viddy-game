@@ -3,6 +3,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 using System.Numerics;
+using System.Drawing;
 //using System.Media.SystemSounds;
 
 class Program
@@ -29,8 +30,6 @@ class Program
         //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"c:\mywavfile.wav");
         //player.Play();
 
-
-        ascii(1, 0, 0);
 
 
 
@@ -188,6 +187,153 @@ class Program
                 startInput = "";
             }
             if (startInput == "CursorTest") { CursorTest(); }
+
+
+
+
+            else if (startInput == "fight")
+            {
+
+                int battleEnd = 0;
+                int MonsterHealth = 30;
+                int PlayerHealth = 20;
+                while (battleEnd == 0)
+                {
+                    Print("\n\nA monster appears!\n", 30);
+                    Print("Monster Health: " + MonsterHealth + "\n", 5);
+                    Print("Player Health: " + PlayerHealth + "\n", 5);
+                    randNumber = rnd.Next(1, 3);
+                    switch (randNumber)
+                    {
+                        case 1:
+                            Print("Monster gets up close!", 30);
+                            break;
+                        case 2:
+                            Print("Monster Attempts to Flee", 30);
+                            break;
+                        case 3:
+                            Print("Monster prepares a healing spell", 30);
+                            break;
+                    }
+                    Print("\n\n What will you do?\n  Punch [Z]\n  Shoot [X]\n Block [C]\n\n", 20);
+
+                    bool PlayerTurn = true;
+
+                    while (PlayerTurn == true)
+                    {
+                        if (Console.KeyAvailable)
+                        {
+                            var key = Console.ReadKey(true);
+
+                            switch (key.Key)
+                            {
+                                case ConsoleKey.Z:
+                                    PlayerTurn = false;
+                                    break;
+                                case ConsoleKey.X:
+                                    PlayerTurn = false;
+                                    randNumber += 3;
+                                    break;
+                                case ConsoleKey.C:
+                                    PlayerTurn = false;
+                                    randNumber += 6;
+                                    break;
+
+                            }
+                        }
+                    }
+
+                    switch (randNumber)
+                    {
+                        case 1:
+                            Print("Monster successfully blocks and counters dealing 5 Damage!\n", 30);
+                            PlayerHealth -= 5;
+                            break;
+                        case 2:
+                            Print("Monster escapes you successfully, Battle End!", 30);
+                            battleEnd = 3;
+                            break;
+                        case 3:
+                            Print("Monster is caught off guard and takes 10 Damage!", 30);
+                            MonsterHealth -= 10;
+                            break;
+                        case 4:
+                            Print("Monster is too close! Monster deals 10 Damage", 30);
+                            PlayerHealth -= 10;
+                            break;
+                        case 5:
+                            Print("Player successfully hits Monster, Monster takes 10 Damage!", 30);
+                            MonsterHealth -= 10;
+                            break;
+                        case 6:
+                            Print("Monster sees Player readying their bow and succesfully dodges!", 30);
+                            break;
+                        case 7:
+                            Print("Monster attempts to attack but is blocked, Player counters and deals 5 Damage!", 30);
+                            break;
+                        case 8:
+                            Print("Monster successfully flees as Player does nothing, Battle End!", 30);
+                            battleEnd = 3;
+                            break;
+                        case 9:
+                            Print("Monster Successfully Heals 5 HP!", 30);
+                            MonsterHealth += 5;
+                            break;
+                    }
+
+                    if (MonsterHealth < 1) { battleEnd = 1; }
+                    else if (PlayerHealth < 1) { battleEnd = 2; }
+                    else { battleEnd = 0; };
+
+                }
+                switch (battleEnd)
+                    {
+                    case 1:
+                        Print("\n\nPlayer Successfully Won with " + PlayerHealth + " HP!\n\n", 50);
+                        break;
+                    case 2:
+                        Print("\n\nPlayer Died! Monster survived with " + MonsterHealth + " HP!\n\n", 50);
+                        break;
+                    case 3:
+                        Print("\n\nMonster escaped the Player successfully and went on to murder 37 people, Player was then tried for their crimes of failing to subjugate the monster and was sentenced to public execution, along with all those related and associated to them.\n\n", 50);
+                        break;
+
+
+                };
+
+
+
+                    DateTime startTimer = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
+                TimeSpan timerLength = TimeSpan.FromSeconds(3);
+                int count = 0;
+                while (DateTime.UtcNow - startTimer < timerLength)
+                {
+                    if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
+                    {
+                        var key = Console.ReadKey(true);
+
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.Spacebar:
+                                count++;
+                                break;
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
 
             if (string.IsNullOrEmpty(startInput))
             {
@@ -733,8 +879,88 @@ class Program
                 Console.ForegroundColor = (ConsoleColor)random.Next(0, 16);
         }
     }
-    public static void HealthBar()
+    public static void GenerateHealthBar()
     {
-        Console 
+        bool updateHealthBar = true;
+        while (true)
+        {
+
+
+
+
+            if (updateHealthBar = false); { break; }
+        }
+    }
+
+}
+public class ConsoleRectangle
+{
+    private int hWidth;
+    private int hHeight;
+    private Point hLocation;
+    private ConsoleColor hBorderColor;
+
+    public ConsoleRectangle(int width, int height, Point location, ConsoleColor borderColor)
+    {
+        hWidth = width;
+        hHeight = height;
+        hLocation = location;
+        hBorderColor = borderColor;
+    }
+
+    public Point Location
+    {
+        get { return hLocation; }
+        set { hLocation = value; }
+    }
+
+    public int Width
+    {
+        get { return hWidth; }
+        set { hWidth = value; }
+    }
+
+    public int Height
+    {
+        get { return hHeight; }
+        set { hHeight = value; }
+    }
+
+    public ConsoleColor BorderColor
+    {
+        get { return hBorderColor; }
+        set { hBorderColor = value; }
+    }
+
+    public void Draw()
+    {
+        string s = "╔";
+        string space = "";
+        string temp = "";
+        for (int i = 0; i < Width; i++)
+        {
+            space += " ";
+            s += "═";
+        }
+
+        for (int j = 0; j < Location.X; j++)
+            temp += " ";
+
+        s += "╗" + "\n";
+
+        for (int i = 0; i < Height; i++)
+            s += temp + "║" + space + "║" + "\n";
+
+        s += temp + "╚";
+        for (int i = 0; i < Width; i++)
+            s += "═";
+
+        s += "╝" + "\n";
+
+        Console.ForegroundColor = BorderColor;
+        Console.CursorTop = hLocation.Y;
+        Console.CursorLeft = hLocation.X;
+        Console.Write(s);
+        Console.ResetColor();
     }
 }
