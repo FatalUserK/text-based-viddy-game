@@ -4,11 +4,12 @@ using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 using System.Numerics;
 using System.Drawing;
+using System.Formats.Asn1;
 //using System.Media.SystemSounds;
 
 class Program
 {
-
+    static int universaltemp1 = 0;
     public static void Main(string[] args)
     {
         // Wow, look! What a cool game...
@@ -156,6 +157,13 @@ class Program
             else if (startInput == "math")
             {
                 ascii(1, 10, 10);
+
+
+                universaltemp1 == (universaltemp1.ToString)
+                universaltemp1.ToString = Console.ReadLine();
+                String.ToInt32 universaltemp1;
+
+
 
                 startInput = "";
             }
@@ -889,6 +897,26 @@ class Program
 
 
             if (updateHealthBar = false); { break; }
+        }
+    }
+    public static void SlashAttack(int BaseDmg, int AdditionalDmg, int TimeFrameS)
+    {
+        DateTime Start = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
+        TimeSpan Length = TimeSpan.FromSeconds(TimeFrameS);
+        int count = 0;
+        while (DateTime.UtcNow - Start < Length)
+        {
+            if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
+            {
+                var key = Console.ReadKey(true);
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.Spacebar:
+                        count++;
+                        break;
+                }
+            }
         }
     }
 
