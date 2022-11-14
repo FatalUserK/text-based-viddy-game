@@ -37,12 +37,12 @@ class Program
 
 
 
-//////////////////////////////////////////// TESTING SPACE END ////////////////////////////////////
+        //////////////////////////////////////////// TESTING SPACE END ////////////////////////////////////
 
 
         // "Wow, look! What a cool game" is a meta reference showing that this game is likely to be less formal with its humor and story since its acknowledging itself as a game
         Console.ForegroundColor = ConsoleColor.Green;
-        Print("\n\nI wonder\n", 15);
+        Text.Print("\n\nI wonder\n", 15);
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Print("         ", 0);
@@ -159,9 +159,9 @@ class Program
                 ascii(1, 10, 10);
 
 
-                universaltemp1 == (universaltemp1.ToString)
-                universaltemp1.ToString = Console.ReadLine();
-                String.ToInt32 universaltemp1;
+                //universaltemp1 == (universaltemp1.ToString)
+                //universaltemp1.ToString = Console.ReadLine();
+                //String.ToInt32 universaltemp1;
 
 
 
@@ -194,120 +194,15 @@ class Program
                 else { Print("WHAT THE FUCK", 60); };
                 startInput = "";
             }
+
             if (startInput == "CursorTest") { CursorTest(); }
 
 
 
 
             else if (startInput == "fight")
-            {
+            { }
 
-                int battleEnd = 0;
-                int MonsterHealth = 30;
-                int PlayerHealth = 20;
-                while (battleEnd == 0)
-                {
-                    Print("\n\nA monster appears!\n", 30);
-                    Print("Monster Health: " + MonsterHealth + "\n", 5);
-                    Print("Player Health: " + PlayerHealth + "\n", 5);
-                    randNumber = rnd.Next(1, 3);
-                    switch (randNumber)
-                    {
-                        case 1:
-                            Print("Monster gets up close!", 30);
-                            break;
-                        case 2:
-                            Print("Monster Attempts to Flee", 30);
-                            break;
-                        case 3:
-                            Print("Monster prepares a healing spell", 30);
-                            break;
-                    }
-                    Print("\n\n What will you do?\n  Punch [Z]\n  Shoot [X]\n Block [C]\n\n", 20);
-
-                    bool PlayerTurn = true;
-
-                    while (PlayerTurn == true)
-                    {
-                        if (Console.KeyAvailable)
-                        {
-                            var key = Console.ReadKey(true);
-
-                            switch (key.Key)
-                            {
-                                case ConsoleKey.Z:
-                                    PlayerTurn = false;
-                                    break;
-                                case ConsoleKey.X:
-                                    PlayerTurn = false;
-                                    randNumber += 3;
-                                    break;
-                                case ConsoleKey.C:
-                                    PlayerTurn = false;
-                                    randNumber += 6;
-                                    break;
-
-                            }
-                        }
-                    }
-
-                    switch (randNumber)
-                    {
-                        case 1:
-                            Print("Monster successfully blocks and counters dealing 5 Damage!\n", 30);
-                            PlayerHealth -= 5;
-                            break;
-                        case 2:
-                            Print("Monster escapes you successfully, Battle End!", 30);
-                            battleEnd = 3;
-                            break;
-                        case 3:
-                            Print("Monster is caught off guard and takes 10 Damage!", 30);
-                            MonsterHealth -= 10;
-                            break;
-                        case 4:
-                            Print("Monster is too close! Monster deals 10 Damage", 30);
-                            PlayerHealth -= 10;
-                            break;
-                        case 5:
-                            Print("Player successfully hits Monster, Monster takes 10 Damage!", 30);
-                            MonsterHealth -= 10;
-                            break;
-                        case 6:
-                            Print("Monster sees Player readying their bow and succesfully dodges!", 30);
-                            break;
-                        case 7:
-                            Print("Monster attempts to attack but is blocked, Player counters and deals 5 Damage!", 30);
-                            break;
-                        case 8:
-                            Print("Monster successfully flees as Player does nothing, Battle End!", 30);
-                            battleEnd = 3;
-                            break;
-                        case 9:
-                            Print("Monster Successfully Heals 5 HP!", 30);
-                            MonsterHealth += 5;
-                            break;
-                    }
-
-                    if (MonsterHealth < 1) { battleEnd = 1; }
-                    else if (PlayerHealth < 1) { battleEnd = 2; }
-                    else { battleEnd = 0; };
-
-                }
-                switch (battleEnd)
-                    {
-                    case 1:
-                        Print("\n\nPlayer Successfully Won with " + PlayerHealth + " HP!\n\n", 50);
-                        break;
-                    case 2:
-                        Print("\n\nPlayer Died! Monster survived with " + MonsterHealth + " HP!\n\n", 50);
-                        break;
-                    case 3:
-                        Print("\n\nMonster escaped the Player successfully and went on to murder 37 people, Player was then tried for their crimes of failing to subjugate the monster and was sentenced to public execution, along with all those related and associated to them.\n\n", 50);
-                        break;
-
-
-                };
 
 
 
@@ -339,7 +234,26 @@ class Program
 
 
 
+            if (startInput == "2.2")
+            {
+                string name = "";
+                List<string> nameList = new List<string>();
+                nameList.Add("Biff"); // adding elements using add() method
+                nameList.Add("Chip");
+                nameList.Add("Kipper");
+                nameList.Add("Hans");
+                nameList.Add("Super");
 
+                for (int i = 0; i < nameList.Count; i++)
+                {
+                    name = nameList[i];
+                    if (name.Length != 4)
+                    {
+                        Console.WriteLine("INVALID!");
+
+                    }
+                    else { Console.WriteLine(name); }
+                }
 
 
 
@@ -569,7 +483,9 @@ class Program
 
             string[] randAntagonistNames = { "This Integer Is Impossible To Have Appear!", "Consequence of Sloth", "Big Meanie", "THIS! USER! IS! LAZY!!!", "lmaooooo", "Antagonist", "Reverend of Sloth", "START!", "Maybe you should have inputted something for the first input...", "ERROR", "INPUT", "INPUT_UNREGISTERED", "An unexpected error has occurred in pulling \"string(startInput)\", please refer to https://dotnet.microsoft.com/en-us/platform/support for more information.", "Advent of Hell", "(insert edgy title/name here)", "The One who Wins", "The Great Adversary", "Xx_Samurai_R_C0ol_xX", "sans" };
             List<string> randAntagonistNamesList = new List<string>(randAntagonistNames);
+
             randNumber = rnd.Next(1, 20);
+
             antogonistName = (randAntagonistNamesList[randNumber]);
             antogonistName = "[" + antogonistName + "]";
 
@@ -632,363 +548,13 @@ class Program
 
         Thread.Sleep(3000);
     }
-    public static void Print(string text, int speed)
-    {
-        foreach (char c in text)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed);
-        }
-    }
-    public static void TextPrecursor(int textType, bool createOnNewLine) // may add a colour tag if i feel the need to later on
-    {
-        if (createOnNewLine == true)
-        {
-            Print("\n", 0);
-        }
-        if (textType == 0)
-        {
-            Console.ForegroundColor = ConsoleColor.Black;
-            Print("NULL>     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-        else if (textType == 1)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Print(">>>>>     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else if (textType == 2)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Print(" * >>      ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else if (textType == 3)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Print("?????     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else if (textType == 4)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Print("*****     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else if (textType == 5)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Print("< i >     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else if (textType == 6)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Print("< ! >     ", 0);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Print("ERROR     ", 0);
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-        }
 
 
-
-
-        // textType Key:
-        // 0 = Null
-        // 1 = Narrative
-        // 2 = Action
-        // 3 = Mystery
-        // 4 = Battle
-        // 5 = Description
-
-
-
-
-
-
-    }
-    public static void PrintLong(string text, int speed, string text1, int speed1, string text2, int speed2, string text3, int speed3, string text4, int speed4, string text5, int speed5, string text6, int speed6)
-    {
         
-        foreach (char c in text)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed);
-        }
-        foreach (char c in text1)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed1);
-        }
-        foreach (char c in text2)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed2);
-        }
-        foreach (char c in text3)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed3);
-        }
-        foreach (char c in text4)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed4);
-        }
-        foreach (char c in text5)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed5);
-        }
-        foreach (char c in text6)
-        {
-            Console.Write(c);
-            Thread.Sleep(speed6);
-        }
+    
+    
+    
     }
-    public static void ascii(int ascii, int newLineSpeed, int typingSpeed)
-    {
-        if (ascii == 0)
-        {
-            // TODO: add placeholder art
-        }
-        else if (ascii == 1)
-        {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine();
-            for (int i = 0; i < 7; i++)
-            {
-                Print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n", typingSpeed);
-                Thread.Sleep(newLineSpeed);
-            };
-            Print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       ", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Print("##################", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Print("(      *", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Print("%%%%%%%&&&&&&&&&&&&&&&&%&&&&&&&&&\n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("&&&&&&&&&&&&&&&&&&&&&&&&%%%%", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Black;
-            Print(".            ", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Print("((###############(             ", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Print("%%%%%%%&&&&&&&&&&%&&&&&&&&&&\n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("&&&", typingSpeed);
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-            Print("", typingSpeed);
-        }
-        else if (ascii == 2)
-        {
-            Print("     .----------------.   .----------------.   .----------------.                     Welcome to:\n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | .--------------. | | .--------------. | | .--------------. |      ______         ______        __       __        __    __        __               ______         ________         ______         _______    \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | |  _______     | | | |   ______     | | | |    ______    | |     /      \\       |      \\      |  \\     /  \\      |  \\  |  \\      |  \\             /      \\       |        \\       /      \\       |       \\   \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | | |_   __ \\    | | | |  |_   __ \\   | | | |  .' ___  |   | |    |  $$$$$$\\       \\$$$$$$      | $$\\   /  $$      | $$  | $$      | $$            |  $$$$$$\\       \\$$$$$$$$      |  $$$$$$\\      | $$$$$$$\\  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | |   | |__) |   | | | |    | |__) |  | | | | / .'   \\_|   | |    | $$___\\$$        | $$        | $$$\\ /  $$$      | $$  | $$      | $$            | $$__| $$         | $$         | $$  | $$      | $$__| $$  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | |   |  __ /    | | | |    |  ___/   | | | | | |    ____  | |     \\$$    \\         | $$        | $$$$\\  $$$$      | $$  | $$      | $$            | $$    $$         | $$         | $$  | $$      | $$    $$   \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | |  _| |  \\ \\_  | | | |   _| |_      | | | | \\ `.___]  _| | |     _\\$$$$$$\\        | $$        | $$\\$$ $$ $$      | $$  | $$      | $$            | $$$$$$$$         | $$         | $$  | $$      | $$$$$$$\\  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | | |____| |___| | | | |  |_____|     | | | |  `._____.'   | |    |  \\__| $$       _| $$_       | $$ \\$$$| $$      | $$__/ $$      | $$_____       | $$  | $$         | $$         | $$__/ $$      | $$  | $$  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | |              | | | |              | | | |              | |     \\$$    $$      |   $$ \\      | $$  \\$ | $$       \\$$    $$      | $$     \\      | $$  | $$         | $$          \\$$    $$      | $$  | $$  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("    | '--------------' | | '--------------' | | '--------------' |      \\$$$$$$        \\$$$$$$       \\$$      \\$$        \\$$$$$$        \\$$$$$$$$       \\$$   \\$$          \\$$           \\$$$$$$        \\$$   \\$$  \n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-            Print("     '----------------'   '----------------'   '----------------'                                                                                                              Designed, Written and Created by K\n\n\n\n", typingSpeed);
-            Thread.Sleep(newLineSpeed);
-        }
-    }
-    public static void CursorTest()
-    {   // I stole this entire script below from the internet lmao
-        Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight / 2);
-        Console.CursorVisible = false;
-        Console.Write('*');
+    
 
-        var random = new Random();
-
-        while (true)
-        {
-            if (Console.KeyAvailable)
-            {
-                var key = Console.ReadKey(true);
-
-                switch (key.Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        if (Console.CursorTop > 0)
-                        {
-                            Console.SetCursorPosition(Console.CursorLeft - 1,
-                                Console.CursorTop - 1);
-                            Console.Write('*');
-                        }
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (Console.CursorTop < Console.BufferHeight)
-                        {
-                            Console.SetCursorPosition(Console.CursorLeft - 1,
-                                Console.CursorTop + 1);
-                            Console.Write('*');
-                        }
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        if (Console.CursorLeft > 1)
-                        {
-                            Console.SetCursorPosition(Console.CursorLeft - 2,
-                                Console.CursorTop);
-                            Console.Write('*');
-                        }
-                        break;
-                    case ConsoleKey.RightArrow:
-                        if (Console.CursorLeft < Console.WindowWidth - 1)
-                        {
-                            Console.Write('*');
-                        }
-                        break;
-                }
-            }
-
-            // This method should be called on every iteration, 
-            // and the iterations should not wait for a key to be pressed
-            // Instead of Frame.Update(), change the foreground color every three seconds  
-            if (DateTime.Now.Second % 3 == 0)
-                Console.ForegroundColor = (ConsoleColor)random.Next(0, 16);
-        }
-    }
-    public static void GenerateHealthBar()
-    {
-        bool updateHealthBar = true;
-        while (true)
-        {
-
-
-
-
-            if (updateHealthBar = false); { break; }
-        }
-    }
-    public static void SlashAttack(int BaseDmg, int AdditionalDmg, int TimeFrameS)
-    {
-        DateTime Start = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
-        TimeSpan Length = TimeSpan.FromSeconds(TimeFrameS);
-        int count = 0;
-        while (DateTime.UtcNow - Start < Length)
-        {
-            if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
-            {
-                var key = Console.ReadKey(true);
-
-                switch (key.Key)
-                {
-                    case ConsoleKey.Spacebar:
-                        count++;
-                        break;
-                }
-            }
-        }
-    }
-
-}
-public class ConsoleRectangle
-{
-    private int hWidth;
-    private int hHeight;
-    private Point hLocation;
-    private ConsoleColor hBorderColor;
-
-    public ConsoleRectangle(int width, int height, Point location, ConsoleColor borderColor)
-    {
-        hWidth = width;
-        hHeight = height;
-        hLocation = location;
-        hBorderColor = borderColor;
-    }
-
-    public Point Location
-    {
-        get { return hLocation; }
-        set { hLocation = value; }
-    }
-
-    public int Width
-    {
-        get { return hWidth; }
-        set { hWidth = value; }
-    }
-
-    public int Height
-    {
-        get { return hHeight; }
-        set { hHeight = value; }
-    }
-
-    public ConsoleColor BorderColor
-    {
-        get { return hBorderColor; }
-        set { hBorderColor = value; }
-    }
-
-    public void Draw()
-    {
-        string s = "╔";
-        string space = "";
-        string temp = "";
-        for (int i = 0; i < Width; i++)
-        {
-            space += " ";
-            s += "═";
-        }
-
-        for (int j = 0; j < Location.X; j++)
-            temp += " ";
-
-        s += "╗" + "\n";
-
-        for (int i = 0; i < Height; i++)
-            s += temp + "║" + space + "║" + "\n";
-
-        s += temp + "╚";
-        for (int i = 0; i < Width; i++)
-            s += "═";
-
-        s += "╝" + "\n";
-
-        Console.ForegroundColor = BorderColor;
-        Console.CursorTop = hLocation.Y;
-        Console.CursorLeft = hLocation.X;
-        Console.Write(s);
-        Console.ResetColor();
-    }
 }
