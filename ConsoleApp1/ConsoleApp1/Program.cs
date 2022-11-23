@@ -5,6 +5,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Numerics;
 using System.Drawing;
 using System.Formats.Asn1;
+using System.Text;
+using ConsoleApp1;
 //using System.Media.SystemSounds;
 
 class Program
@@ -21,7 +23,7 @@ class Program
         //                                       :)
         Console.ForegroundColor = ConsoleColor.Cyan;
 
-        PrintLong("Wow,", 1, " ", 700, "look!", 1, " ", 1300, "What a cool gam", 1, "e", 1500, "...", 900);
+        GameText.Print("Wow,", 1, " ", 700, "look!", 1, " ", 1300, "What a cool gam", 1, "e", 1500, "...", 900);
         Thread.Sleep(2000);
 
 
@@ -42,23 +44,23 @@ class Program
 
         // "Wow, look! What a cool game" is a meta reference showing that this game is likely to be less formal with its humor and story since its acknowledging itself as a game
         Console.ForegroundColor = ConsoleColor.Green;
-        Text.Print("\n\nI wonder\n", 15);
+        GameText.Print("\n\nI wonder\n", 15);
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Print("         ", 0);
-        Print("if anyone's\n", 15);
+        GameText.Print("         ", 0);
+        GameText.Print("if anyone's\n", 15);
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Red;
-        Print("                     ", 0);
-        Print("going to\n", 15);
+        GameText.Print("                     ", 0);
+        GameText.Print("going to\n", 15);
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Print("                              ", 0);
-        Print("make it\n", 15);
+        GameText.Print("                              ", 0);
+        GameText.Print("make it\n", 15);
         Thread.Sleep(800);
         Console.ForegroundColor = ConsoleColor.Blue;
-        Print("                                      ", 0);
-        Print(":)\n", 5);
+        GameText.Print("                                      ", 0);
+        GameText.Print(":)\n", 5);
         Thread.Sleep(1500);
 
         // ^ this is initially just a funny little intro i made for fun but i could give it some meaning later on or in a later iteration of this project, such as the game ending with everyone dying, showing that nobody is "going to make it"
@@ -68,11 +70,11 @@ class Program
         // holds off on running the scripts that put the game together until the player enters an input, this act as a gatekeeper as it were but will also act as the input for the main antagonist.
         // The User is probably unaware of this and will likely bring some sort of gratification knowing this choice had some sort of payoff in the long run,
         // This could also lead to some comedic moments later on deciding on the input the user decided on
-        Print("\n\n\n\n[Type anything to ", 10);
+        GameText.Print("\n\n\n\n[Type anything to ", 10);
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Print("START", 10);
+        GameText.Print("START", 10);
         Console.ForegroundColor = ConsoleColor.Blue;
-        Print("]\n\n", 10);
+        GameText.Print("]\n\n", 10);
 
 
         // randomise list set up in the event the user does not enter inputs when required
@@ -100,37 +102,37 @@ class Program
 
             if (startInput == "debug")
             {
-                TextPrecursor(0, true);
-                Print("Empty", 20);
-                TextPrecursor(1, true);
-                Print("Narrative", 20);
-                TextPrecursor(2, true);
-                Print("Action", 20);
-                TextPrecursor(3, true);
-                Print("Mystery", 20);
-                TextPrecursor(4, true);
-                Print("Description", 20);
-                TextPrecursor(5, true);
-                Print("Null", 20);
-                TextPrecursor(6, true);
-                Print("Null", 20);
-                TextPrecursor(7, true);
-                Print("Null", 20);
-                TextPrecursor(8, true);
-                Print("Null", 20);
-                TextPrecursor(9, true);
-                Print("Null", 20);
+                GameText.Precursor(0, true);
+                GameText.Print("Empty", 20);
+                GameText.Precursor(1, true);
+                GameText.Print("Narrative", 20);
+                GameText.Precursor(2, true);
+                GameText.Print("Action", 20);
+                GameText.Precursor(3, true);
+                GameText.Print("Mystery", 20);
+                GameText.Precursor(4, true);
+                GameText.Print("Description", 20);
+                GameText.Precursor(5, true);
+                GameText.Print("Null", 20);
+                GameText.Precursor(6, true);
+                GameText.Print("Null", 20);
+                GameText.Precursor(7, true);
+                GameText.Print("Null", 20);
+                GameText.Precursor(8, true);
+                GameText.Print("Null", 20);
+                GameText.Precursor(9, true);
+                GameText.Print("Null", 20);
 
                 randNumber = rnd.Next(0, 1000);
 
-                Print("\n\n0-1000: " + randNumber, 20);
-                Print("3 2 1 ", 500);
-                Print("GO!", 0);
+                GameText.Print("\n\n0-1000: " + randNumber, 20);
+                GameText.Print("3 2 1 ", 500);
+                GameText.Print("GO!", 0);
 
-                DateTime startTimer = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
-                TimeSpan timerLength = TimeSpan.FromSeconds(3);
-                int count = 0;
-                while (DateTime.UtcNow - startTimer < timerLength)
+                DateTime startTimerTest = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
+                TimeSpan timerLengthTest = TimeSpan.FromSeconds(3);
+                int countTest = 0;
+                while (DateTime.UtcNow - startTimerTest < timerLengthTest)
                 {
                     if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
                     {
@@ -139,16 +141,16 @@ class Program
                         switch (key.Key)
                         {
                             case ConsoleKey.Spacebar:
-                                count ++;
+                                countTest++;
                                 break;
                         }
                     }
                 }
-                Print("You pressed the Spacebar " + count + " times!", 20);
+                GameText.Print("You pressed the Spacebar " + countTest + " times!", 20);
 
-                Print("\n\nRunning Text Delay Test in ", 20);
-                Print("3 2 1\n", 500);
-                PrintLong("  <<<<10>>>>  ", 10, "  <<<<50>>>>", 50, "  <<<<100>>>>  ", 100, "  <<<<500>>>>  ", 500, "  <<<<1000>>>> ", 1000, "  <<<<5000>>>>  ", 5000, "  <<<<10000>>>>  ", 10000);
+                GameText.Print("\n\nRunning Text Delay Test in ", 20);
+                GameText.Print("3 2 1\n", 500);
+                GameText.Print("  <<<<10>>>>  ", 10, "  <<<<50>>>>", 50, "  <<<<100>>>>  ", 100, "  <<<<500>>>>  ", 500, "  <<<<1000>>>> ", 1000, "  <<<<5000>>>>  ", 5000, "  <<<<10000>>>>  ", 10000);
 
                 startInput = "";
             }
@@ -178,24 +180,24 @@ class Program
                 while (heroValidInput == 0)
                 {
                     hero = "";
-                    Print("\n\nSuperman, Batman, Thor, God, Ironman:\n", 20);
+                    GameText.Print("\n\nSuperman, Batman, Thor, God, Ironman:\n", 20);
                     hero = Console.ReadLine();
                     if (heroesList.Contains(hero)) { heroValidInput++; }
-                    else if (hero.Length < 1) { Print("\nPlease give an input.", 20); }
-                    else if (heroInputFailure <= 5) { Print("\nPlease give a valid input.", 20); heroInputFailure++; }
-                    else { Print("\nPlease give a valid input, note that the input is Case-sensitive", 20); }
+                    else if (hero.Length < 1) { GameText.Print("\nPlease give an input.", 20); }
+                    else if (heroInputFailure <= 5) { GameText.Print("\nPlease give a valid input.", 20); heroInputFailure++; }
+                    else { GameText.Print("\nPlease give a valid input, note that the input is Case-sensitive", 20); }
                 }
-                Print("Thank you for your input...\n", 20);
-                if (hero == "Superman") { Print("He can do literally anything but is stupid", 20); }
-                else if (hero == "Batman") { Print("He's angsty and rich", 20); }
-                else if (hero == "Thor") { Print("Theoretically a God of Thunder, really just some overweight Fortnite player", 20); }
-                else if (hero == "God") { Print("Basically Superman but better", 20); }
-                else if (hero == "Ironman") { Print("Weak as shit but rich and smart as hell", 20); }
-                else { Print("WHAT THE FUCK", 60); };
+                GameText.Print("Thank you for your input...\n", 20);
+                if (hero == "Superman") { GameText.Print("He can do literally anything but is stupid", 20); }
+                else if (hero == "Batman") { GameText.Print("He's angsty and rich", 20); }
+                else if (hero == "Thor") { GameText.Print("Theoretically a God of Thunder, really just some overweight Fortnite player", 20); }
+                else if (hero == "God") { GameText.Print("Basically Superman but better", 20); }
+                else if (hero == "Ironman") { GameText.Print("Weak as shit but rich and smart as hell", 20); }
+                else { GameText.Print("WHAT THE FUCK", 60); };
                 startInput = "";
             }
 
-            if (startInput == "CursorTest") { CursorTest(); }
+            if (startInput == "CursorTest") { CursorTest.Cursor(); }
 
 
 
@@ -206,54 +208,54 @@ class Program
 
 
 
-                    DateTime startTimer = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
-                TimeSpan timerLength = TimeSpan.FromSeconds(3);
-                int count = 0;
-                while (DateTime.UtcNow - startTimer < timerLength)
+            DateTime startTimer = DateTime.UtcNow;           // https://stackoverflow.com/questions/27359345/how-to-check-if-specific-time-has-passed
+            TimeSpan timerLength = TimeSpan.FromSeconds(3);
+            int count = 0;
+            while (DateTime.UtcNow - startTimer < timerLength)
+            {
+                if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
                 {
-                    if (Console.KeyAvailable)                    // https://stackoverflow.com/questions/63818349/c-sharp-net-console-application-getting-keyboard-input
-                    {
-                        var key = Console.ReadKey(true);
+                    var key = Console.ReadKey(true);
 
-                        switch (key.Key)
-                        {
-                            case ConsoleKey.Spacebar:
-                                count++;
-                                break;
-                        }
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.Spacebar:
+                            count++;
+                            break;
                     }
                 }
-
-
-
-
-
-
-
             }
 
 
 
-            if (startInput == "2.2")
+
+
+
+
+        }
+
+
+
+        if (startInput == "2.2")
+        {
+            string name = "";
+            List<string> nameList = new List<string>();
+            nameList.Add("Biff"); // adding elements using add() method
+            nameList.Add("Chip");
+            nameList.Add("Kipper");
+            nameList.Add("Hans");
+            nameList.Add("Super");
+
+            for (int i = 0; i < nameList.Count; i++)
             {
-                string name = "";
-                List<string> nameList = new List<string>();
-                nameList.Add("Biff"); // adding elements using add() method
-                nameList.Add("Chip");
-                nameList.Add("Kipper");
-                nameList.Add("Hans");
-                nameList.Add("Super");
-
-                for (int i = 0; i < nameList.Count; i++)
+                name = nameList[i];
+                if (name.Length != 4)
                 {
-                    name = nameList[i];
-                    if (name.Length != 4)
-                    {
-                        Console.WriteLine("INVALID!");
+                    Console.WriteLine("INVALID!");
 
-                    }
-                    else { Console.WriteLine(name); }
                 }
+                else { Console.WriteLine(name); }
+            }
 
 
 
@@ -261,16 +263,16 @@ class Program
             {
                 //startInput = (randStartInputList[randNumber]);
                 Console.ForegroundColor = ConsoleColor.White;
-                Print("\nFALSE POSITIVE DETECTED,", 20);
+                GameText.Print("\nFALSE POSITIVE DETECTED,", 20);
                 Thread.Sleep(500);
-                Print(" RETURNING TO DORMANT STATE", 20);
+                GameText.Print(" RETURNING TO DORMANT STATE", 20);
                 Thread.Sleep(1200);
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Print("\n\n\n\n[Type anything to ", 10);
+                GameText.Print("\n\n\n\n[Type anything to ", 10);
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Print("START", 10);
+                GameText.Print("START", 10);
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Print("]\n", 10);
+                GameText.Print("]\n", 10);
 
             }
 
@@ -288,12 +290,12 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
 
         // Print 
-        Print("\n" + userInputEcho, 0);
+        GameText.Print("\n" + userInputEcho, 0);
         Console.ForegroundColor = ConsoleColor.White;
-        Print(startInput, 0);
+        GameText.Print(startInput, 0);
         Thread.Sleep(1500);
         Console.ForegroundColor = ConsoleColor.Blue;
-        Print("...", 800);
+        GameText.Print("...", 800);
         Console.WriteLine();
 
 
@@ -301,25 +303,25 @@ class Program
         Thread.Sleep(1400);
         Console.ForegroundColor = ConsoleColor.Red;
 
-        Print("\n\nWARNING! USER INPUT DETECTED,", 2);
+        GameText.Print("\n\nWARNING! USER INPUT DETECTED,", 2);
         Console.ForegroundColor = ConsoleColor.White;
         Thread.Sleep(600);
-        Print(" REQUESTING FOR RESPONSE FROM UNIT 221B", 2);
+        GameText.Print(" REQUESTING FOR RESPONSE FROM UNIT 221B", 2);
         Thread.Sleep(400);
-        Print("...", 400);
+        GameText.Print("...", 400);
 
         Thread.Sleep(1500);
 
-        Print("\n\nRESPONSE RECEIVED, INITIALISING OIS", 2);
+        GameText.Print("\n\nRESPONSE RECEIVED, INITIALISING OIS", 2);
         Thread.Sleep(600);
-        Print("...", 600);
+        GameText.Print("...", 600);
 
 
         Thread.Sleep(1500);
 
 
 
-        Print("\n\n\nOperator Interaction System Initialised...\n\n", 10);
+        GameText.Print("\n\n\nOperator Interaction System Initialised...\n\n", 10);
 
         Thread.Sleep(1200);
         Console.ForegroundColor = ConsoleColor.Gray;
@@ -327,18 +329,18 @@ class Program
         foreach (char c in textTemp)                            // runs the script for every letter left in the designated string [textTemp]
         {
             randNumber = rnd.Next(5, 140);                      // picks a random number between 5 and 500
-            Print(c.ToString(), 40);                    // sends the next letter from [textTemp] that hasnt already been sent and then make the thread sleep the by the amount designated by the random number above
+            GameText.Print(c.ToString(), 40);                    // sends the next letter from [textTemp] that hasnt already been sent and then make the thread sleep the by the amount designated by the random number above
 
-                                                // previously replaced "randNumber" with "40"
+            // previously replaced "randNumber" with "40"
 
         }                                  // TODO: SIMPLIFY THIS INTO A FUNCTION, HAVENT DONE THIS YET AS I ACTUALLY DONT NEED IT RN
-        Thread.Sleep(2000); 
+        Thread.Sleep(2000);
 
         textTemp = "Trace Discovered...\n";
         foreach (char c in textTemp)
         {
             randNumber = rnd.Next(5, 140);
-            Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
+            GameText.Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
 
 
         }
@@ -348,7 +350,7 @@ class Program
         foreach (char c in textTemp)
         {
             randNumber = rnd.Next(5, 140);
-            Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
+            GameText.Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
 
 
         }
@@ -357,11 +359,11 @@ class Program
         foreach (char c in textTemp)
         {
             randNumber = rnd.Next(30, 250);
-            Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
+            GameText.Print(c.ToString(), 40);            // previously replaced "randNumber" with "40"
 
 
         }
-        Print("...\n", 300);
+        GameText.Print("...\n", 300);
 
 
 
@@ -377,30 +379,30 @@ class Program
         for (int i = 0; i < 5; i++)
         {
             String substring = textTemp.Substring(startIndex, length);
-            Print(substring, 0);
+            GameText.Print(substring, 0);
             tempCount = (tempCount + 1);
             startIndex = startIndex + 39;
             Thread.Sleep(30);
         }
 
         Console.ForegroundColor = ConsoleColor.White;
-        Print("INITIATING ", 1);
+        GameText.Print("INITIATING ", 1);
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Print("PACIFIER PROTOCOL", 1);
+        GameText.Print("PACIFIER PROTOCOL", 1);
 
-        Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 1);
+        GameText.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 1);
 
         ascii(2, 5, 0);
 
         Console.ForegroundColor = ConsoleColor.White;
 
-        Print("Welcome,", 13);
+        GameText.Print("Welcome,", 13);
         Thread.Sleep(800);
-        PrintLong(" Brave,", 13, " ", 13, "New", 13, " Adventurer,", 13, " ", 1100, "to the land of ", 13, "", 0);
+        GameText.Print(" Brave,", 13, " ", 13, "New", 13, " Adventurer,", 13, " ", 1100, "to the land of ", 13, "", 0);
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Print("[RPG SIMULATOR]", 70);
+        GameText.Print("[RPG SIMULATOR]", 70);
         Console.ForegroundColor = ConsoleColor.White;
-        Print("!\n\n", 10);
+        GameText.Print("!\n\n", 10);
 
         Thread.Sleep(1500);
 
@@ -410,9 +412,9 @@ class Program
         // Picking the player's name
 
         bool userIsUncooperative = true;
-        Print("Tell me, young lad,", 13);
+        GameText.Print("Tell me, young lad,", 13);
         Thread.Sleep(1100);
-        Print(" who is this legend about?\n", 43);
+        GameText.Print(" who is this legend about?\n", 43);
 
         Console.Write("Your name: ");
         playerName = Console.ReadLine();
@@ -420,19 +422,19 @@ class Program
         playerName = "[" + playerName + "]";
 
 
-        Print("\n" + playerName + ",", 70);
+        GameText.Print("\n" + playerName + ",", 70);
         Thread.Sleep(650);
-        Print(" huh?\n\n", 13);
+        GameText.Print(" huh?\n\n", 13);
         Thread.Sleep(1300);
-        if (playerName == "[]") 
+        if (playerName == "[]")
         {
-            Print("Well I suppose if you don't want to answer,", 13);
+            GameText.Print("Well I suppose if you don't want to answer,", 13);
             Thread.Sleep(800);
-            Print(" it can't be helped.\n", 13);
+            GameText.Print(" it can't be helped.\n", 13);
             Thread.Sleep(1600);
-            Print("However you still need a name,", 23);
+            GameText.Print("However you still need a name,", 23);
             Thread.Sleep(600);
-            Print(" I'll have to call you something!\n\n", 18);
+            GameText.Print(" I'll have to call you something!\n\n", 18);
             Thread.Sleep(1800);
 
 
@@ -442,13 +444,13 @@ class Program
             playerName = (randPlayerNamesList[randNumber]);
             playerName = "[" + playerName + "]";
 
-            PrintLong("How about: " + playerName + "?", 39, " ", 1900, "\n\nYes,", 19, " ", 800, playerName + " will do nicely.", 13, " ", 900, "", 0);
+            GameText.Print("How about: " + playerName + "?", 39, " ", 1900, "\n\nYes,", 19, " ", 800, playerName + " will do nicely.", 13, " ", 900, "", 0);
         }
         else
         {
-            Print("Yes,", 39);
+            GameText.Print("Yes,", 39);
             Thread.Sleep(500);
-            Print(" that'll do nicely.", 26);
+            GameText.Print(" that'll do nicely.", 26);
             userIsUncooperative = false;
             Thread.Sleep(900);
         }
@@ -460,25 +462,25 @@ class Program
         // Picking the antagonist's name (copied code from above)
 
 
-        Print("\n\nNow Who will our Brave Protagonist be fighting back against?\n", 23);
+        GameText.Print("\n\nNow Who will our Brave Protagonist be fighting back against?\n", 23);
 
         Console.Write("Your enemy's name: ");
         string antogonistName = Console.ReadLine();
 
         antogonistName = "[" + antogonistName + "]";
 
-        if (antogonistName == "[]") 
+        if (antogonistName == "[]")
         {
-            Print("\nGot writer's block?", 13);
+            GameText.Print("\nGot writer's block?", 13);
             Thread.Sleep(1600);
-            Print(" Don't worry, son!\n", 23);
+            GameText.Print(" Don't worry, son!\n", 23);
             Thread.Sleep(600);
-            Print("I'll help you think of something!\n\n", 18);
+            GameText.Print("I'll help you think of something!\n\n", 18);
             Thread.Sleep(1800);
 
             // Fun fact, the antagonist's name used to be determined by the initial input at the beginning before i decided to do some funny lore stuff, i couldve made it tie together but i felt like there'd be too many people who'd put gibberish as the name which would kinda suck, so this way people at least know what they're doing
             // the downside of this is that its less likely that people will find the funny names, but thats fine, i may alter this list and reuse some things for the userIsUncooperative Tag (i may name the path after "randAntagonistNamesList" 1; Consequence of Sloth)
-            
+
             // tldr: i made this list before the playerName list and also i might redo this one and resue some of the names for other stuff
 
             string[] randAntagonistNames = { "This Integer Is Impossible To Have Appear!", "Consequence of Sloth", "Big Meanie", "THIS! USER! IS! LAZY!!!", "lmaooooo", "Antagonist", "Reverend of Sloth", "START!", "Maybe you should have inputted something for the first input...", "ERROR", "INPUT", "INPUT_UNREGISTERED", "An unexpected error has occurred in pulling \"string(startInput)\", please refer to https://dotnet.microsoft.com/en-us/platform/support for more information.", "Advent of Hell", "(insert edgy title/name here)", "The One who Wins", "The Great Adversary", "Xx_Samurai_R_C0ol_xX", "sans" };
@@ -489,15 +491,15 @@ class Program
             antogonistName = (randAntagonistNamesList[randNumber]);
             antogonistName = "[" + antogonistName + "]";
 
-            Print("What about: " + antogonistName + "?\n\n", 39);
+            GameText.Print("What about: " + antogonistName + "?\n\n", 39);
             Thread.Sleep(1900);
-            Print(antogonistName + " sounds good to me!", 13);
+            GameText.Print(antogonistName + " sounds good to me!", 13);
         }
         else
         {
-            Print(antogonistName + "?", 39);
+            GameText.Print(antogonistName + "?", 39);
             Thread.Sleep(700);
-            Print(" Sounds good to me!", 39);
+            GameText.Print(" Sounds good to me!", 39);
             userIsUncooperative = false;
         }
 
@@ -505,35 +507,35 @@ class Program
         Thread.Sleep(2000);
 
 
-        TextPrecursor(0, true);
-        TextPrecursor(0, true);
-        TextPrecursor(1, true);
-        PrintLong(playerName + " awakes like any other day,", 17, " ", 900, "in his cloud-like bed in his room in the small town of Rudville,", 19," ", 1500, "a quiet town located in beautiful lush green plains.", 23, " ", 2300, "", 0);
+        GameText.Precursor(0, true);
+        GameText.Precursor(0, true);
+        GameText.Precursor(1, true);
+        GameText.Print(playerName + " awakes like any other day,", 17, " ", 900, "in his cloud-like bed in his room in the small town of Rudville,", 19, " ", 1500, "a quiet town located in beautiful lush green plains.", 23, " ", 2300, "", 0);
 
-        TextPrecursor(1, true);
-        PrintLong(playerName + " lies there,", 23, " ", 1100, "smug about how much better their life is than everybody else's,", 23, " ", 1600, "and how much cooler and better he is than everyone else (as if this ", 23, "\n", 23, "", 0);
+        GameText.Precursor(1, true);
+        GameText.Print(playerName + " lies there,", 23, " ", 1100, "smug about how much better their life is than everybody else's,", 23, " ", 1600, "and how much cooler and better he is than everyone else (as if this ", 23, "\n", 23, "", 0);
 
-        TextPrecursor(1, true);
-        Print("was something up for debate(it was not)).", 23);
+        GameText.Precursor(1, true);
+        GameText.Print("was something up for debate(it was not)).", 23);
         Thread.Sleep(1700);
-        TextPrecursor(1, true);
-        TextPrecursor(1, true);
-        PrintLong("Today is Saturday,", 23, " ", 300, "(his second-favourite day).", 23, " ", 300, "So he goes out to frolic in the flower fields", 23, " ", 200, "while thinking about the fact he is vastly better than everyone else.\n", 23);
+        GameText.Precursor(1, true);
+        GameText.Precursor(1, true);
+        GameText.Print("Today is Saturday,", 23, " ", 300, "(his second-favourite day).", 23, " ", 300, "So he goes out to frolic in the flower fields", 23, " ", 200, "while thinking about the fact he is vastly better than everyone else.\n", 23);
         Thread.Sleep(3100);
 
-        TextPrecursor(1, true);
-        Print("\"I am better than everyone else in every way!~\", he sang, \"Even that shitty old man who beat swordsmanship into me! Well, not that I can PROVE I'm better, but it doesn't matter if I prove it! I'm still the best!~\"\n", 23);
+        GameText.Precursor(1, true);
+        GameText.Print("\"I am better than everyone else in every way!~\", he sang, \"Even that shitty old man who beat swordsmanship into me! Well, not that I can PROVE I'm better, but it doesn't matter if I prove it! I'm still the best!~\"\n", 23);
         Thread.Sleep(3100);
-        TextPrecursor(1, true);
-        Print("He was then promptly struck by lightning and immediately died", 23);
+        GameText.Precursor(1, true);
+        GameText.Print("He was then promptly struck by lightning and immediately died", 23);
         Thread.Sleep(1300);
-        Print("...", 850);
+        GameText.Print("...", 850);
         Thread.Sleep(1100);
-        Print(" Is what WOULD'VE happened", 23);
+        GameText.Print(" Is what WOULD'VE happened", 23);
         Thread.Sleep(700);
-        Print(", if this was an ordinary lightning bolt...", 23);
-        Print("", 23);
-        TextPrecursor(1, true);
+        GameText.Print(", if this was an ordinary lightning bolt...", 23);
+        GameText.Print("", 23);
+        GameText.Precursor(1, true);
 
 
 
@@ -549,12 +551,16 @@ class Program
         Thread.Sleep(3000);
     }
 
+    public static void ascii(int a, int b, int c)
+    {
 
-        
-    
-    
-    
     }
-    
+
+
+
+
+
 
 }
+    
+

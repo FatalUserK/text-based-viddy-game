@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     internal class CursorTest
     {
-        public void Cursor()
+        public static void Cursor()
         {   // I stole this entire script below from the internet lmao
             Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight / 2);
             Console.CursorVisible = false;
